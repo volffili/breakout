@@ -11,6 +11,24 @@ import Particle from './particle';
 
 export default class Game {
 
+
+  handleStart(evt){
+    evt.preventDefault();
+    var ctx = this.backBufferContext;
+    var touches = evt.changedTouches;
+    for (var i = 0; i < touches.length; i++) {
+      
+      ongoingTouches.push(copyTouch(touches[i]));
+    }
+
+  }
+  handleEnd{
+  
+  }
+  handleMove{
+
+  }
+
   getMousePos(canvas, evt) {
     var rect = canvas.getBoundingClientRect();
     this.mouse_x = evt.clientX - rect.left;
@@ -20,6 +38,7 @@ export default class Game {
   initGame(level,score){
 
     this.current_song = Math.floor(Math.random() * this.music.length);
+    this.music[this.current_song].currentTime = 0;
     this.music[this.current_song].play();
 
     if(level == undefined){
@@ -78,6 +97,7 @@ export default class Game {
 
     this.ball = new Ball(this,this.base_width/2,this.base_height/2,8,this.ball_speed,8,0.8);
     this.player = new Paddle(60,0,20,this.base_width/2,this.base_height/16*15,paddle_size,10,this);
+
     this.Key.something_was_pressed = false;
     this.some_mouse_was_pressed = false;
     this.screen_shake = 0;
@@ -178,6 +198,15 @@ export default class Game {
       this.mouseIsDown = false;
     }.bind(this)
 
+    this.handleStart = this.handleStart.bind(this);
+    this.handleEnd = this.handleEnd.bind(this);
+    this.handleMove = this.handleMove.bind(this);
+
+    this.backBufferCanvas.addEventListener("touchstart", this.handleStart, false);
+    this.backBufferCanvas.addEventListener("touchend", this.handleEnd, false);
+    //this.backBufferCanvas.addEventListener("touchcancel", handleCancel, false);
+    this.backBufferCanvas.addEventListener("touchmove", this.handleMove, false);
+
     this.base_width = 1024;
     this.base_height = 576;
     this.scale = 1;
@@ -203,10 +232,10 @@ export default class Game {
     this.introRender = this.introRender.bind(this);
     this.inputIntro = this.inputIntro.bind(this);
     setInterval( this.update, 1000/this.FPS );
-    this.intro = false;
-    this.initGame();
+    this.intro = true;
     this.update();
-    //this.timestamp = new Date();
+    this.timestamp = new Date();
+
     /*this.screenBufferCanvas.addEventListener('mousemove', function(evt) {
       var mousePos = this.getMousePos(this.screenBufferCanvas, evt);
     }.bind(this), false);*/
@@ -216,6 +245,7 @@ export default class Game {
   inputIntro(){    
     if(this.Key.something_was_pressed || this.some_mouse_was_pressed){
       this.intro = false;
+      this.zoom = 0;
       this.initGame();
     }
   }
@@ -335,7 +365,7 @@ export default class Game {
 
     this.inputRegularGame();
 
-    //this.zoom *= 0.9;
+    this.zoom *= 0.9;
 
     var bricks_left = 0;
     var bounced = false;
@@ -486,16 +516,17 @@ export default class Game {
   }
 
   update() {
-
+    //console.log(this.scale);
+    //console.log(this.zoom);
     if(this.intro){
       
-      this.inputIntro();
 
       if(this.zoom < 1){
         this.zoom += 0.1;
       }else{
         this.zoom = 1;
       }
+      this.inputIntro();
     }else{
       this.screen_shake *= 0.9;
       if(this.next_level == false && this.game_over == false){
