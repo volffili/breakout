@@ -117,7 +117,7 @@ export default class Ball {
 
 	  	if(this.y < 0){
 
-	  		console.log(this.direction);
+	  		//console.log(this.direction);
 
 	  		if(this.y <= 0) this.y=0;
 	  		//while(this.y >= this.game.base_height) --this.y;

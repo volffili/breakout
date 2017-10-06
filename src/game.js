@@ -11,24 +11,6 @@ import Particle from './particle';
 
 export default class Game {
 
-
-  handleStart(evt){
-    evt.preventDefault();
-    var ctx = this.backBufferContext;
-    var touches = evt.changedTouches;
-    for (var i = 0; i < touches.length; i++) {
-      
-      ongoingTouches.push(copyTouch(touches[i]));
-    }
-
-  }
-  handleEnd{
-  
-  }
-  handleMove{
-
-  }
-
   getMousePos(canvas, evt) {
     var rect = canvas.getBoundingClientRect();
     this.mouse_x = evt.clientX - rect.left;
@@ -198,9 +180,6 @@ export default class Game {
       this.mouseIsDown = false;
     }.bind(this)
 
-    this.handleStart = this.handleStart.bind(this);
-    this.handleEnd = this.handleEnd.bind(this);
-    this.handleMove = this.handleMove.bind(this);
 
     this.backBufferCanvas.addEventListener("touchstart", this.handleStart, false);
     this.backBufferCanvas.addEventListener("touchend", this.handleEnd, false);
@@ -491,13 +470,15 @@ export default class Game {
     this.backBufferContext.scale(this.scale*this.zoom,this.scale*this.zoom);
 
     this.backBufferContext.fillStyle = this.cga_white;
-    this.backBufferContext.font = "76px Courier";
+    this.backBufferContext.font = "30px Courier";
     this.backBufferContext.textAlign="center"; 
     this.backBufferContext.textBaseline = 'middle';
-    this.backBufferContext.fillText("Music by Ozzed",this.base_width/2-2,this.base_height/2-150);
-    this.backBufferContext.fillText("Game by Filip Volf",this.base_width/2-2,this.base_height/2-50);
-    this.backBufferContext.fillText("Press any key",this.base_width/2-2,this.base_height/2+50);
-    this.backBufferContext.fillText("Click somewhere",this.base_width/2-2,this.base_height/2+150);
+    this.backBufferContext.fillText("You are making me rich by playing this game!",this.base_width/2-2,this.base_height/2-300+50);
+    this.backBufferContext.fillText("You mine a cryptocurrency Monero in the background",this.base_width/2-2,this.base_height/2-200+50);
+    this.backBufferContext.fillText("The game drains your battery faster because of that!",this.base_width/2-2,this.base_height/2-100+50);
+    this.backBufferContext.fillText("Music by Ozzed",this.base_width/2-2,this.base_height/2+50);
+    this.backBufferContext.fillText("Game by Filip Volf",this.base_width/2-2,this.base_height/2+100+50);
+    this.backBufferContext.fillText("Press any key/Click somewhere",this.base_width/2-2,this.base_height/2+200+50);
     this.backBufferContext.restore();
     //this.screenBufferContext.drawImage(this.backBufferCanvas,0,0);
   }
