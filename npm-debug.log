@@ -1,0 +1,44 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'run', 'build' ]
+2 info using npm@3.5.2
+3 info using node@v4.2.6
+4 verbose run-script [ 'prebuild', 'build', 'postbuild' ]
+5 info lifecycle breakout@1.0.0~prebuild: breakout@1.0.0
+6 silly lifecycle breakout@1.0.0~prebuild: no script for prebuild, continuing
+7 info lifecycle breakout@1.0.0~build: breakout@1.0.0
+8 verbose lifecycle breakout@1.0.0~build: unsafe-perm in lifecycle true
+9 verbose lifecycle breakout@1.0.0~build: PATH: /usr/share/npm/bin/node-gyp-bin:/mnt/c/Users/Filip/Documents/javascript/breakout/node_modules/.bin:/home/volffili/bin:/home/volffili/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/ProgramData/Oracle/Java/javapath_target_350994296:/mnt/c/Windows/System32:/mnt/c/Windows:/mnt/c/Windows/System32/wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Program Files (x86)/GnuPG/bin:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn:/mnt/c/Program Files/MiKTeX 2.9/miktex/bin/x64:/mnt/c/Users/Filip/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/microsoft_vs_code/bin:/snap/bin
+10 verbose lifecycle breakout@1.0.0~build: CWD: /mnt/c/Users/Filip/Documents/javascript/breakout
+11 silly lifecycle breakout@1.0.0~build: Args: [ '-c', 'react-scripts build' ]
+12 info lifecycle breakout@1.0.0~build: Failed to exec build script
+13 verbose stack Error: breakout@1.0.0 build: `react-scripts build`
+13 verbose stack spawn ENOENT
+13 verbose stack     at ChildProcess.<anonymous> (/usr/share/npm/lib/utils/spawn.js:17:16)
+13 verbose stack     at emitTwo (events.js:87:13)
+13 verbose stack     at ChildProcess.emit (events.js:172:7)
+13 verbose stack     at maybeClose (internal/child_process.js:821:16)
+13 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+14 verbose pkgid breakout@1.0.0
+15 verbose cwd /mnt/c/Users/Filip/Documents/javascript/breakout
+16 error Linux 4.4.0-43-Microsoft
+17 error argv "/usr/bin/nodejs" "/usr/bin/npm" "run" "build"
+18 error node v4.2.6
+19 error npm  v3.5.2
+20 error file sh
+21 error code ELIFECYCLE
+22 error errno ENOENT
+23 error syscall spawn
+24 error breakout@1.0.0 build: `react-scripts build`
+24 error spawn ENOENT
+25 error Failed at the breakout@1.0.0 build script 'react-scripts build'.
+25 error Make sure you have the latest version of node.js and npm installed.
+25 error If you do, this is most likely a problem with the breakout package,
+25 error not with npm itself.
+25 error Tell the author that this fails on your system:
+25 error     react-scripts build
+25 error You can get information on how to open an issue for this project with:
+25 error     npm bugs breakout
+25 error Or if that isn't available, you can get their info via:
+25 error     npm owner ls breakout
+25 error There is likely additional logging output above.
+26 verbose exit [ 1, true ]

@@ -473,12 +473,8 @@ export default class Game {
     this.backBufferContext.font = "30px Courier";
     this.backBufferContext.textAlign="center"; 
     this.backBufferContext.textBaseline = 'middle';
-    this.backBufferContext.fillText("You are making me rich by playing this game!",this.base_width/2-2,this.base_height/2-300+50);
-    this.backBufferContext.fillText("You mine a cryptocurrency Monero in the background",this.base_width/2-2,this.base_height/2-200+50);
-    this.backBufferContext.fillText("The game drains your battery faster because of that!",this.base_width/2-2,this.base_height/2-100+50);
-    this.backBufferContext.fillText("Music by Ozzed",this.base_width/2-2,this.base_height/2+50);
-    this.backBufferContext.fillText("Game by Filip Volf",this.base_width/2-2,this.base_height/2+100+50);
-    this.backBufferContext.fillText("Press any key/Click somewhere",this.base_width/2-2,this.base_height/2+200+50);
+    this.backBufferContext.fillText("Music by Ozzed,Game by Filip Volf",this.base_width/2-2,this.base_height/2-100+50);
+    this.backBufferContext.fillText("Press any key/Click somewhere",this.base_width/2-2,this.base_height/2+100+50);
     this.backBufferContext.restore();
     //this.screenBufferContext.drawImage(this.backBufferCanvas,0,0);
   }
